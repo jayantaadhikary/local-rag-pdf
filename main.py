@@ -8,6 +8,7 @@ from langchain_community.llms.ollama import Ollama
 
 DATA_PATH = "data"
 CHROMA_PATH = "chroma"
+MODEL_NAME = "llama3"
 
 PROMPT_TEMPLATE = """
 Answer the questions based on the following text:
@@ -43,7 +44,7 @@ def split_documents(documents):
 
 
 def get_embedding_function():
-    return OllamaEmbeddings(model="llama3")
+    return OllamaEmbeddings(model=MODEL_NAME)
 
 
 # create a vector store
@@ -104,12 +105,11 @@ def query_rag(query_text):
     prompt_template = ChatPromptTemplate.from_template(PROMPT_TEMPLATE)
     prompt = prompt_template.format(context=context_text, question=query_text)
 
-    model = Ollama(model="llama3")
+    model = Ollama(model=MODEL_NAME)
     response_text = model.invoke(prompt)
 
     sources = [doc.metadata.get("id", None) for doc, _score in results]
     print(f"Response: {response_text}\nSources: {sources}")
-
 
 
 if __name__ == "__main__":

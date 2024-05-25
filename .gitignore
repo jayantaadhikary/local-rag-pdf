@@ -1,2 +1,3 @@
 chroma
-data
+data/*.pdf
+.DS_Store
