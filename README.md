@@ -13,7 +13,7 @@ To install the packages, you can run the following command:
 pip install -r requirements.txt
 ```
 
-After installing the required packages, you also need to create a folder called `data` in the root directory of the repository and place the PDF documents in the `data` folder.
+After installing the required packages, you also need to place the PDF documents in the `data` folder.
 
 You also need to download [Ollama](https://ollama.com) if you haven't already.
 After downloading Ollama, make sure you download the 'llama3' model in the terminal by running the following command:
